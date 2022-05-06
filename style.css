@@ -3,9 +3,97 @@ html body {
 }
 
 body {
-    background-color: aquamarine;
+    background-color: hsl(218, 23%, 16%);
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 28px;
+    color: #dadada;
+    line-height: 1.3em ;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
 }
 
 .main-container {
-    background-color: coral;
+    background-color:  hsl(217, 19%, 24%); 
+    /*width: 50%;*/
+    margin: 10% auto;
+    position: relative;
+    width: 90%;
+    max-width: 375px ;
+    border-radius: 10px;
+    padding-bottom: 35px;
+}
+
+.adviceId {
+    font-family: 'Manrope', sans-serif;
+    color:  hsl(150, 100%, 66%);
+    text-transform:uppercase;
+    letter-spacing: 5px;
+
+}
+
+.flexContainer {
+    background-color: hsl(217, 19%, 24%);
+    text-align: center;
+    padding: 10px 30px ;
+    border-radius: 10px;
+}
+
+
+.partitionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.dotsContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 42px;
+}
+
+.middleDots {
+    width: 7px;
+    height: 19px;
+    border-radius: 6px;
+    background-color: #dadada;
+}
+
+/*.leftDot {
+ margin-right: 5px;
+}
+
+.rightDot {
+ margin-left: 5px;
+}*/
+
+.leftLine {
+    border-bottom: 1px solid hsl(217, 19%, 38%);;
+    width: 48%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.rightLine {
+    border-bottom: 1px solid hsl(217, 19%, 38%);
+    width: 48%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.button {
+    border: none;
+    position: absolute;
+    left:41%;
+    bottom: -9%;
+    border-radius: 45px;
+    padding: 18px 20px;
+    background-color: hsl(150, 100%, 66%);
+}
+
+.button:hover {
+    cursor: pointer;  
+    background-color: hsla(150, 100%, 66%, 0.774) 
 }
