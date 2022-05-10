@@ -11,15 +11,18 @@ const url = "https://api.adviceslip.com/advice";
 const mainContainer = document.getElementById('mainContainer');
 const contentContainer = document.getElementById('contentContainer');
 const button = document.getElementById('btn');
-//Create a 404 page and use in error handling 
+
+//Create a 404 page and use in error handling
+
+// Made initial fetch api request using an async function await keyword
 async function getAdviceOnLoad(URL) {
     try {
         res = await fetch(URL);
         data = await res.json();
         console.log("here is the data =>,", data)
         return data;
-
-    } catch (e) {
+// handling any errors in the api call through try and catch statement to test for any errors in the try block
+    } catch (e) { 
         console.log('the error', e);
     }
 }
@@ -35,18 +38,17 @@ async function getAdviceOnClick(URL) {
         console.log('the error', e);
     }
 }
-
+// Makes a api request once the window is loaded i.e. the initial api request 
 window.onload = function () {
     getAdviceOnLoad(url)
         .then((advice) => {
             const div = document.createElement("div");
             div.innerHTML = "";
-            //const contentContainer = div.classList.add('contentContainer');
             contentContainer.appendChild(div);
             console.log(advice)
             div.innerHTML = `
 
-            <div class = flexContainer > 
+            <div class = contentContainer > 
             <h5 class = adviceId> Advice #${advice.slip.id} <h5>
             <p>"${advice.slip.advice}"</p>
             <div class = partitionContainer>
@@ -64,23 +66,20 @@ window.onload = function () {
 
 }
 
+/* This is the button event, makes an api call when clicked*/ 
 button.addEventListener('click', ()=>{
     contentContainer.innerHTML='';
-   /* const button = document.createElement('button');
-    button.classList.add('button');
-    mainContainer.appendChild(button);
-    button.innerHTML = `<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" fill="#202733"/></svg>`*/
     getAdviceOnClick(url)
     .then((advice) => {
         const div = document.createElement("div");
-        div.innerHTML = "";
-        //const contentContainer = div.classList.add('contentContainer');
+//This clears the previous dynamic content form the main-container before rendering new content from api request
+        div.innerHTML = ""; 
         contentContainer.appendChild(div);
+//Testing the parsed object data recived from the api request in the console
         console.log(advice)
         div.innerHTML = `
 
-        <div class = flexContainer > 
+        <div class = contentContainer > 
         <h5 class = adviceId> Advice #${advice.slip.id} <h5>
         <p>"${advice.slip.advice}"</p>
         <div class = partitionContainer>
