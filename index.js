@@ -99,9 +99,9 @@ window.onload = function () {
 })
 
 document.addEventListener('keydown', (e) => {
-//  Testing the event, and the key value that it was fired on
+    //  Testing the event, and the key value that it was fired on
     console.log(e.code, 'was fired!')
-// Using an if statement to test the value of the key fired
+    // Using an if statement to test the value of the key fired
     if (e.code === 'Enter') {
         contentContainer.innerHTML = '';
     getAdviceOnClick(url)
